@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="scene" id="scene">
+  <div class="cube" id="cube">
+    <div class="face" data-face="top" data-i="0">
+      <span class="face-ph">TOP</span>
+      <div class="media-wrap">
+        <video src="./14_Jan.mp4"  playsinline></video>
+      </div>
+    </div>
+    <div class="face" data-face="front" data-i="1">
+      <span class="face-ph">FRONT</span>
+      <div class="media-wrap">
+        <video src="./14_Jan.mp4"  playsinline></video>
+      </div>
+    </div>
+    <div class="face" data-face="right" data-i="2">
+      <span class="face-ph">RIGHT</span>
+      <div class="media-wrap">
+        <video src="./14_Jan.mp4"  playsinline></video>
+      </div>
+    </div>
+    <div class="face" data-face="back" data-i="3">
+      <span class="face-ph">BACK</span>
+      <div class="media-wrap">
+        <video src="./14_Jan.mp4"  playsinline></video>
+      </div>
+    </div>
+    <div class="face" data-face="left" data-i="4">
+      <span class="face-ph">LEFT</span>
+      <div class="media-wrap">
+        <img src="./plane.svg" alt="">
+      </div>
+    </div>
+    <div class="face" data-face="bottom" data-i="5">
+      <span class="face-ph">BOTTOM</span>
+        <div class="media-wrap">
+        <img src="./plane.svg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hud" id="hud">
+  <div class="hud_pct" id="hud_pct">000%</div>
+  <div class="progress-bar">
+    <div class="progress-fill" id="prog_fill"></div>
+  </div>
+  <div class="scene-label" id="scene_name">Progress</div>
+</div>
+
+<div class="scene_strip" id="scene_strip">
+  <a href="#s0"  class="scene-dot active"></a>
+  <a href="#s1" class="scene-dot"></a>
+  <a href="#s2" class="scene-dot"></a>
+  <a href="#s3" class="scene-dot"></a>
+  <a href="#s4" class="scene-dot"></a>
+  <a href="#s5" class="scene-dot"></a>
+</div>
+
+<div class="face_caption" id="face_caption">
+  <div class="face_caption_num" id="face_caption_num">01</div>
+  <div class="face_caption_name" id="face_caption_name">Welcome</div>
+
+  <div class="controls">
+      <button class="play-btn">click to play</button>
+  </div>
+</div>
+
+<div class="scroll_container" id="scroll_container">
+
+  <section class="s0" id="s0">
+    <div class="text-card">
+      <div class="tag">Question 1</div>
+      <h1>How would others describe me?</h1>
+      <p class="body-text">
+        My classmates and colleagues would describe me as <span>calm</span> , 
+        <span>focused</span>, and <span>composed</span>. This isn’t a one-off impression, 
+        but something consistent across different situations. 
+        Whether I’m studying in class or working on a project, 
+        I tend to take a step back first, fully understand the problem, 
+        and then move on to analysis and execution.
+      </p>
+      <a class="cta" href="#s1">
+        Continue
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 6h10M6 1l5 5-5 5" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <section id="s1">
+    <div class="text-card right">
+      <div class="h-line"></div>
+      <div class="tag">Question 2</div>
+      <h2>What is my working style, and how does it fit this role?</h2>
+      <p class="body-text">
+        Overall, my working style is <span>organized</span>, <span>user-focused</span>, and <span>detail-oriented</span>. I aim to understand user needs, refine details, and work closely with the team to deliver effective designs.
+      </p>
+      <a class="cta" href="#s2">
+        Continue
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 6h10M6 1l5 5-5 5" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <section id="s2">
+    <div class="text-card">
+      <div class="h-line"></div>
+      <div class="tag">Question 3</div>
+      <h2>What do I know about this company, and what makes it stand out?</h2>
+      <p class="body-text">
+        From your website, I understand that your company not only helps founders <span>simplify</span> legal operations, but also enables law firms to provide support in a more <span>efficient</span> and <span>sustainable</span> sustainable way. This is what gives you a unique and strong competitive advantage in the market.
+      </p>
+      <a class="cta" href="#s3">
+        Continue
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 6h10M6 1l5 5-5 5" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <section id="s3">
+    <div class="text-card right">
+      <div class="h-line"></div>
+      <div class="tag">Question 4</div>
+      <h2>Describe a time when I made a mistake and how I handled it?</h2>
+      <p class="body-text">
+        Regarding a time I made a mistake, I can share an experience from when I was designing a Christmas-themed webpage…
+      </p>
+      <div class="stat-row" style="justify-content: flex-end">
+      </div>
+      <a class="cta" href="#s4">
+        Continue
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 6h10M6 1l5 5-5 5" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <section id="s4">
+    <div class="text-card">
+      <div class="h-line"></div>
+      <div class="tag">Thank you!</div>
+      <h2>Thank you for taking the time to watch this recorded interview.</h2>
+      <p class="body-text">
+      </p>
+      <a class="cta" href="#s5">
+        Continue
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 6h10M6 1l5 5-5 5" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <section id="s5">
+    <div class="text-card right">
+      <div class="h-line"></div>
+      <div class="tag">Goodbye!</div>
+      <h2>Looking forward to hearing from you</h2>
+      <p class="body-text">
+      </p>
+      <a class="cta" href="#s0">
+        Begin again
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 6h10M6 1l5 5-5 5" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<div class="credit" id="credit">
+  <a href="" target="_blank" rel="noopener">Back to Home</a>
+</div>
+
+
+<script src="./main.js"></script>
+</body>
+</html>
