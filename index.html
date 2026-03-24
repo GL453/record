@@ -3,40 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./style.css">
+  <title>Guangdong – Interview Question Response</title>
+  <link rel="icon" href="./plane.svg" type="image/x-icon">
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./loading.css">
 </head>
 <body>
+
+<div class="startsec" id="loadingScreen">
+
+  <div class="container">
+    <div class="orbit-wrapper" id="orbitWrapper">
+      <div class="outer orbit">
+        <div class="middle orbit">
+          <div class="inner orbit"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-orbit-wrapper" id="btnWrapper">
+        <button class="bubblyButton" id="bubblyBtn">
+          Click to start
+        </button>
+  </div>
+
+</div>
+
+
   <div class="scene" id="scene">
   <div class="cube" id="cube">
     <div class="face" data-face="top" data-i="0">
       <span class="face-ph">TOP</span>
       <div class="media-wrap">
-        <video src="./14_Jan.mp4"  playsinline></video>
+        <video src="./Answer1.mp4"  playsinline></video>
       </div>
     </div>
     <div class="face" data-face="front" data-i="1">
       <span class="face-ph">FRONT</span>
       <div class="media-wrap">
-        <video src="./14_Jan.mp4"  playsinline></video>
+        <video src="./Answer2.mp4"  playsinline></video>
       </div>
     </div>
     <div class="face" data-face="right" data-i="2">
       <span class="face-ph">RIGHT</span>
       <div class="media-wrap">
-        <video src="./14_Jan.mp4"  playsinline></video>
+        <video src="./Answer3.mp4"  playsinline></video>
       </div>
     </div>
     <div class="face" data-face="back" data-i="3">
       <span class="face-ph">BACK</span>
       <div class="media-wrap">
-        <video src="./14_Jan.mp4"  playsinline></video>
+        <video src="./Answer4.mp4"  playsinline></video>
       </div>
     </div>
     <div class="face" data-face="left" data-i="4">
       <span class="face-ph">LEFT</span>
       <div class="media-wrap">
-        <img src="./plane.svg" alt="">
+        <img src="./thank.png" alt="">
       </div>
     </div>
     <div class="face" data-face="bottom" data-i="5">
@@ -70,7 +94,7 @@
   <div class="face_caption_name" id="face_caption_name">Welcome</div>
 
   <div class="controls">
-      <button class="play-btn">click to play</button>
+      <button class="play-btn">Click to Play</button>
   </div>
 </div>
 
@@ -82,7 +106,7 @@
       <h1>How would others describe me?</h1>
       <p class="body-text">
         My classmates and colleagues would describe me as <span>calm</span> , 
-        <span>focused</span>, and <span>composed</span>. This isn’t a one-off impression, 
+        <span>focused</span>, and <span>steady</span>. This isn’t a one-off impression, 
         but something consistent across different situations. 
         Whether I’m studying in class or working on a project, 
         I tend to take a step back first, fully understand the problem, 
@@ -185,10 +209,11 @@
 </div>
 
 <div class="credit" id="credit">
-  <a href="" target="_blank" rel="noopener">Back to Home</a>
+  <a href="https://gl453.github.io/portfolio/" target="_blank" rel="noopener">Back to Home</a>
 </div>
 
 
 <script src="./main.js"></script>
+<script src="./loading.js"></script>
 </body>
 </html>

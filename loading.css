@@ -1,0 +1,278 @@
+
+.startsec {
+  position: relative;
+  overflow: hidden;
+  background-color: #f7f7f5;
+  box-sizing: border-box;
+  margin: auto;
+  width: 100%;
+  height: 99vh;
+  position: fixed; 
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: opacity 2.4s ease, visibility 1.2s ease;
+}
+
+/* 隐藏状态 */
+.startsec.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.container {
+  width: 80vw;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* ===== 通用轨道 ===== */
+.orbit {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  animation: spin linear infinite;
+}
+
+/* ===== 外层 ===== */
+.outer {
+  --w: 40vw;
+  --dotw: calc(var(--w) / 10);
+  width: var(--w);
+  height: var(--w);
+  animation: spin 72s linear infinite;
+}
+
+/* ===== 中层 ===== */
+.middle {
+  --mw: 30vw;
+  width: var(--mw);
+  height: var(--mw);
+  animation: spin 64s linear infinite;
+}
+
+/* ===== 内层 ===== */
+.inner {
+  --iw: 20vw;
+  width: var(--iw);
+  height: var(--iw);
+  animation: spin 42s linear infinite;
+}
+
+/* ===== dot ===== */
+.dot {
+  width: var(--dotw);
+  height: var(--dotw);
+  position: absolute;
+  top: calc(var(--dotw) / -2);
+}
+
+/* 定位 */
+.outer .dot {
+  left: calc((var(--w) - var(--dotw)) / 2);
+  transform-origin: center calc((var(--w) + var(--dotw)) / 2);
+}
+
+.middle .dot {
+  left: calc((var(--mw) - var(--dotw)) / 2);
+  transform-origin: center calc((var(--mw) + var(--dotw)) / 2);
+}
+
+.inner .dot {
+  left: calc((var(--iw) - var(--dotw)) / 2);
+  transform-origin: center calc((var(--iw) + var(--dotw)) / 2);
+}
+
+/* 飞机图标 */
+.dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('./plane.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: rotate(60deg);
+}
+
+/* 动画 */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  30% { transform: rotate(180deg); }
+  60% { transform: rotate(360deg); }
+  90% { transform: rotate(300deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== 按钮 ===== */
+.btn-orbit-wrapper {
+  width: 18vw;
+  height: 18vw;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+/* 简单按钮（代替 React BubblyButton） */
+.bubbly-button {
+  padding: 1em 2em;
+  border: none;
+  background: #9055ff;
+  color: white;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ===== 轨道显示控制 ===== */
+.orbit-wrapper {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.orbit-wrapper.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+    .bubblyButton {
+  display: inline-block;
+  font-size: 1em;
+  padding: 1em 2em;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #003cc5;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  box-shadow: 0 2px 25px rgba(0, 60, 197, 0.5);
+}
+
+.bubblyButton:focus {
+  outline: 0;
+}
+
+/* 伪元素 */
+.bubblyButton::before,
+.bubblyButton::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 140%;
+  height: 100%;
+  left: -20%;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+}
+
+/* 上方气泡 */
+.bubblyButton::before {
+  display: none;
+  top: -75%;
+  background-image:
+    radial-gradient(circle, #FEC5FB 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #FEC5FB 20%, transparent 30%),
+    radial-gradient(circle, #FEC5FB 20%, transparent 20%),
+    radial-gradient(circle, #FEC5FB 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #FEC5FB 15%, transparent 20%),
+    radial-gradient(circle, #FEC5FB 20%, transparent 20%),
+    radial-gradient(circle, #FEC5FB 20%, transparent 20%),
+    radial-gradient(circle, #FEC5FB 20%, transparent 20%),
+    radial-gradient(circle, #FEC5FB 20%, transparent 20%);
+  background-size:
+    10% 10%, 20% 20%, 15% 15%, 20% 20%,
+    18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+
+/* 下方气泡 */
+.bubblyButton::after {
+  display: none;
+  bottom: -75%;
+  background-image:
+    radial-gradient(circle, #FEC5FB 20%, transparent 20%),
+    radial-gradient(circle, #FEC5FB 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #FEC5FB 15%, transparent 20%),
+    radial-gradient(circle, #FEC5FB 20%, transparent 20%),
+    radial-gradient(circle, #FEC5FB 20%, transparent 20%),
+    radial-gradient(circle, #FEC5FB 20%, transparent 20%),
+    radial-gradient(circle, #FEC5FB 20%, transparent 20%);
+  background-size:
+    15% 15%, 20% 20%, 18% 18%,
+    20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+
+/* 点击状态 */
+.bubblyButton:active {
+  transform: scale(0.9);
+  background-color: #003cc5;
+  box-shadow: 0 2px 25px rgba(0, 60, 197, 0.5);
+}
+
+/* 触发动画 */
+.bubblyButton.animate::before {
+  display: block;
+  animation: topBubbles ease-in-out 1.2s forwards;
+}
+
+.bubblyButton.animate::after {
+  display: block;
+  animation: bottomBubbles ease-in-out 1.2s forwards;
+}
+
+/* 动画 */
+@keyframes topBubbles {
+  0% {
+    background-position:
+      5% 90%, 10% 90%, 10% 90%, 15% 90%,
+      25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+  }
+  50% {
+    background-position:
+      0% 80%, 0% 20%, 10% 40%, 20% 0%,
+      30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+  }
+  100% {
+    background-position:
+      0% 70%, 0% 10%, 10% 30%, 20% -10%,
+      30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%;
+  }
+}
+
+@keyframes bottomBubbles {
+  0% {
+    background-position:
+      10% -10%, 30% 10%, 55% -10%,
+      70% -10%, 85% -10%, 70% -10%, 70% 0%;
+  }
+  50% {
+    background-position:
+      0% 80%, 20% 80%, 45% 60%,
+      60% 100%, 75% 70%, 95% 60%, 105% 0%;
+  }
+  100% {
+    background-position:
+      0% 90%, 20% 90%, 45% 70%,
+      60% 110%, 75% 80%, 95% 70%, 110% 10%;
+    background-size: 0% 0%;
+  }
+}

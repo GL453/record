@@ -1,5 +1,4 @@
 
-
 const FACE_NAMES = [
   "Welcome",
   "Question 2",
@@ -35,9 +34,13 @@ const dots = document.querySelectorAll(".scene-dot");
 
 const easeIO = (t) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
 
+
+
+
+
 let lastFaceIdx = -1;
-let isManualPaused = false;
-const playBtn = document.querySelector(".play-btn");
+const playBtn = document.querySelector(".play-btn"); 
+let isPlaying = false; 
 
 const updateHUD = (s) => {
   const p = Math.round(s * 100);
@@ -45,46 +48,47 @@ const updateHUD = (s) => {
 
   hudPct.textContent = String(p).padStart(3, "0") + "%";
   progFill.style.width = `${p}%`;
+  if (si === 4 || si === 5) {
+    playBtn.style.display = "none";
+  } else {
+    playBtn.style.display = "block";
+  }
 
   if (si !== lastFaceIdx) {
     lastFaceIdx = si;
+
+    // 更新caption
     const name = FACE_NAMES[si];
     sceneName.textContent = name;
     captionNum.textContent = String(si + 1).padStart(2, "0");
     captionName.textContent = name;
     dots.forEach((d, i) => d.classList.toggle("active", i === si));
 
-    // 自动播放当前面视频（除非用户手动暂停）
-    faces.forEach((face, i) => {
+    // 切换面时暂停所有视频
+    faces.forEach((face) => {
       const video = face.querySelector("video");
-      if (!video) return;
-      if (i === si) {
-        if (!isManualPaused) video.play();
-      } else {
+      if (video) {
         video.pause();
         video.currentTime = 0;
       }
     });
 
-    //  重置按钮状态为播放
-
-    isManualPaused = false;
+    // 切换面时重置播放状态
+    isPlaying = false;
   }
 };
 
-// 按钮控制当前面视频播放/暂停
+// 播放/暂停当前面视频（只在点击时触发）
 playBtn.addEventListener("click", () => {
   const currentVideo = faces[lastFaceIdx]?.querySelector("video");
   if (!currentVideo) return;
 
   if (currentVideo.paused) {
     currentVideo.play();
-
-    isManualPaused = false;
+    isPlaying = true;
   } else {
     currentVideo.pause();
-
-    isManualPaused = true;
+    isPlaying = false;
   }
 });
 
